@@ -1,0 +1,10 @@
+<div class="profile-container">
+  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "sample-author1.jpg" %>
+  <h3 class="profile-name"><%= @user.name %></h3>
+  <% if @user.id == current_user.id %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+  <% end %>
+  <%= image_tag('sample-author1.jpg') %>
+</div>
+
+<%= render 'post_images/list', post_images: @post_images %>
